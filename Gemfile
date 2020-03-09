@@ -11,3 +11,4 @@ gem 'capybara'
 gem "rubocop", "0.79.0"
 gem 'simplecov', require: false, group: :test
 gem 'require_all'
+gem 'pg'

@@ -1,9 +1,10 @@
+require 'pg'
 class Bookmark
-  attr_reader :list
+
 def self.all
-  ['https://www.youtube.com/?gl=GB',
-  'https://www.amazon.co.uk/ref=nav_logo',
-  'https://github.com/']
+  connection = PG.connect(dbname: 'bookmark_manager')
+  result = connection.exec('SELECT * FROM bookmarks')
+result.map { |bookmark| bookmark['url'] }
 end
 
 end

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-09T16:29:01+00:00">2020-03-09T16:29:01+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-03-09T17:44:35+00:00">2020-03-09T17:44:35+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -29,8 +29,8 @@
      </span>
      covered at
      <span class="covered_strength">
-       <span class="yellow">
-         1.0
+       <span class="green">
+         1.12
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>24</b> relevant lines,
-    <span class="green"><b>24</b> lines covered</span> and
+    <b>26</b> relevant lines,
+    <span class="green"><b>26</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -84,11 +84,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ef66f37bfb8ff880aa530915cf22795dfc3ff995" class="src_link" title="lib/bookmark.rb">lib/bookmark.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">9</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">4</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">6</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">1.50</td>
             
           </tr>
         
@@ -330,8 +330,8 @@
     
 
     <div class="t-line-summary">
-      <b>4</b> relevant lines.
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>6</b> relevant lines.
+      <span class="green"><b>6</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -349,7 +349,7 @@
 
             
 
-            <code class="ruby">class Bookmark</code>
+            <code class="ruby">require &#39;pg&#39;</code>
           </li>
         </div>
       
@@ -360,67 +360,12 @@
 
             
 
-            <code class="ruby">  attr_reader :list</code>
+            <code class="ruby">class Bookmark</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="3">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">def self.all</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  [&#39;https://www.youtube.com/?gl=GB&#39;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="5">
-            
-            
-
-            
-
-            <code class="ruby">  &#39;https://www.amazon.co.uk/ref=nav_logo&#39;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="6">
-            
-            
-
-            
-
-            <code class="ruby">  &#39;https://github.com/&#39;]</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="7">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="3">
             
             
 
@@ -431,7 +376,73 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">def self.all</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  connection = PG.connect(dbname: &#39;bookmark_manager&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  result = connection.exec(&#39;SELECT * FROM bookmarks&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="4" data-linenumber="7">
+            <span class="hits">4</span>
+            
+
+            
+
+            <code class="ruby">result.map { |bookmark| bookmark[&#39;url&#39;] }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
             
             
 
@@ -589,7 +600,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content &quot;https://www.youtube.com/?gl=GB&quot;</code>
+            <code class="ruby">    expect(page).to have_content &quot;http://www.makersacademy.com&quot;</code>
           </li>
         </div>
       
@@ -600,7 +611,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content &quot;https://www.amazon.co.uk/ref=nav_logo&quot;</code>
+            <code class="ruby">    expect(page).to have_content &quot;http://www.google.com&quot;</code>
           </li>
         </div>
       
@@ -611,7 +622,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content &quot;https://github.com/&quot;</code>
+            <code class="ruby">    expect(page).to have_content &quot;http://www.destroyallsoftware.com&quot;</code>
           </li>
         </div>
       
